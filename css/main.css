@@ -45,6 +45,11 @@ body {
 	clear: both;
 }
 
+.tl, .br { text-align: right; }
+.tr img { bottom: 0; }
+.tl img { bottom: 0; right: 0; }
+.bl img { right: 0; }
+
 /* set up drop zones */
 .drop-zone {
 	width: 49.5%;
@@ -52,6 +57,13 @@ body {
 	border: thin dashed white;
 	float: left;
 	position: relative;
+}
+
+.drop-zone img {
+	width: auto !important;
+	padding: 0 !important;
+	cursor: default;
+	position: absolute;
 }
 
 
