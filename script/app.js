@@ -4,20 +4,31 @@
 
 
 	const piecesBoard = document.querySelector('.puzzle-pieces'),
-		  puzzleBoard = document.querySelector('.puzzle-board'),
-		  puzzleSelectors = document.querySelectorAll('#buttonHolder img'),
-		  dropZones = document.querySelectorAll('.drop-zone');
+		  	puzzleBoard = document.querySelector('.puzzle-board'),
+		  	puzzleSelectors = document.querySelectorAll('#buttonHolder img'),
+		  	dropZones = document.querySelectorAll('.drop-zone');
 
 
-	let draggablePieces = document.querySelectorAll("img");
+	let draggablePieces = piecesBoard.querySelectorAll("img");
 
-	debugger;
+	//debugger;
 	//
-	
+
 	function switchImage() {
 		console.log(this);
+		// grab the corresponding background image (0, 1, 2 or  3)
+		// and get it from the images folder background.jpg as an example
+
+
+		// use `` not ''
+		let bgImage = `./images/backGround${this.dataset.puzzleref}.jpg`;
+
+		// set the background image style on the dropzone container
+		puzzleBoard.style.backgroundImage = `url(${bgImage})`;
+
+		debugger;
 	}
-	
+
 	puzzleSelectors.forEach(thumbnail => thumbnail.addEventListener("click", switchImage));
 
 
@@ -41,7 +52,7 @@
 			e.preventDefault();
 			console.log('dragged sumpin over me');
 		});
-	
+
 	// allow user to drop an element
 		zone.addEventListener("drop", function(e) {
 			e.preventDefault();
