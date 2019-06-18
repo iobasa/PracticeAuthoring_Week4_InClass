@@ -11,6 +11,9 @@
 
 	let draggablePieces = piecesBoard.querySelectorAll("img");
 
+	//arrays are indexed and start at 0
+	const imageNameArray = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+
 	//debugger;
 	//
 
@@ -26,7 +29,15 @@
 		// set the background image style on the dropzone container
 		puzzleBoard.style.backgroundImage = `url(${bgImage})`;
 
-		debugger;
+		// work on switching the right-hand images so that they match the buttons at the bottom
+		draggablePieces.forEach((image, index) => {
+			// log the image and the current index
+			//console.log(image, index);
+
+			// try to change each image source
+			image.src = `images/${imageNameArray[index]}${this.dataset.puzzleref}.jpg`;
+			debugger;
+		});
 	}
 
 	puzzleSelectors.forEach(thumbnail => thumbnail.addEventListener("click", switchImage));
@@ -49,7 +60,9 @@
 	dropZones.forEach(zone => {
 	// allow user to drag over element
 		zone.addEventListener("dragover", function(e) {
-			e.preventDefault();
+			e.preventDefault(); //don't do your default behaviour
+			//instead do the following:
+
 			console.log('dragged sumpin over me');
 		});
 
