@@ -30,6 +30,31 @@
 		}
 }
 
+		if (".dropZones" === 0) { return; }
+		else {
+			dropZones.forEach(zone => {
+			// allow user to drag over element
+				zone.addEventListener("dragover", function(e) {
+					e.preventDefault(); //don't do your default behaviour
+					//instead do the following:
+
+					console.log('dragged sumpin over me');
+				});
+
+			// allow user to drop an element
+				zone.addEventListener("drop", function(e) {
+					e.preventDefault();
+					console.log('you dropped sumpin over me');
+
+					let draggedElement = e.dataTransfer.getData("text/plain");
+					console.log('you dragged: ', draggedElement);
+
+					// add the image to the drop zone
+					e.target.removeChild(document.querySelector(`#${draggedElement}`));
+
+				});
+			})
+	};
 
 	function switchImage() {
 		console.log(this);
