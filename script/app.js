@@ -14,8 +14,22 @@
 	//arrays are indexed and start at 0
 	const imageNameArray = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
 
+
 	//debugger;
 	//
+
+
+
+	function resetPuzzlePieces(dropZones) {
+		console.log('reset!');
+
+		let node = document.querySelectorAll('.drop-zone');
+
+		if (node.parentNode == 1) {
+  node.parentNode.removeChild(node);
+		}
+}
+
 
 	function switchImage() {
 		console.log(this);
@@ -40,7 +54,10 @@
 		});
 	}
 
+
+
 	puzzleSelectors.forEach(thumbnail => thumbnail.addEventListener("click", switchImage));
+	puzzleSelectors.forEach(thumbnail => thumbnail.addEventListener("click", resetPuzzlePieces));
 
 
 	// loop through the draggable images
@@ -76,6 +93,7 @@
 
 			// add the image to the drop zone
 			e.target.appendChild(document.querySelector(`#${draggedElement}`));
+
 		});
 	})
 
